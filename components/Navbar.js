@@ -57,8 +57,6 @@ export default function Navbar() {
     return (
         <div >
             <Menubar model={items} start={start} end={end} />
-            <h1 className='navbarTitle'>Jeremy</h1>
-
         </div>
     );
 }
