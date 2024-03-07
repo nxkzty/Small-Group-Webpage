@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import Gallerie from '../components/Gallerie';
+import { RadioButton } from "primereact/radiobutton";
 
 function IndexPage() {
     const [searchFilter, setSearchFilter] = useState(1);
@@ -114,32 +115,53 @@ function IndexPage() {
     return (
         <>
             <Gallerie />
-            <div style={{ maxWidth: '800px', margin: '0 auto', marginTop: '20px' }}>
-                <blockquote style={{ borderLeft: '5px solid #007bff', padding: '10px' }}>
+            <div style={{ maxWidth: '800px', margin: '0 auto', marginTop: '40px', padding: '20px', boxShadow: '0px 0px 10px rgba(0, 0, 0, 0.1)', borderRadius: '8px', backgroundColor: '#fff' }}>
+                <blockquote style={{ borderLeft: '5px solid #007bff', padding: '10px', fontStyle: 'italic' }}>
                     <p>{currentScripture.text}</p>
                 </blockquote>
 
                 <form style={{ marginTop: '20px' }}>
-                    <div style={{ display: 'flex' }}>
-                        <select
-                            style={{ marginRight: '2px' }}
-                            value={searchFilter}
-                            onChange={(e) => setSearchFilter(e.target.value)}
-                        >
-                            <option value={1}>All Books</option>
-                            <option value={2}>New Testament</option>
-                            <option value={3}>Old Testament</option>
-                        </select>
-                        <button
-                            style={{ cursor: 'pointer', backgroundColor: '#007bff', color: '#fff' }}
-                            onClick={(e) => generateScripture(e)}
-                        >
-                            Generate Scripture
-                        </button>
+                    <div style={{ display: 'flex', alignItems: 'center' }}>
+                        <label style={{ marginRight: '10px' }}>
+                            <input
+                                type="radio"
+                                value={1}
+                                checked={searchFilter === 1}
+                                onChange={() => setSearchFilter(1)}
+                            />
+                            All Books
+                        </label>
+
+                        <label style={{ marginRight: '10px' }}>
+                            <input
+                                type="radio"
+                                value={2}
+                                checked={searchFilter === 2}
+                                onChange={() => setSearchFilter(2)}
+                            />
+                           Old Testament
+                        </label>
+
+                        <label>
+                            <input
+                                type="radio"
+                                value={3}
+                                checked={searchFilter === 3}
+                                onChange={() => setSearchFilter(3)}
+                            />
+                            New Testament
+                        </label>
                     </div>
+
+                    <button
+                        style={{ backgroundColor: '#007bff', color: '#fff', padding: '8px', border: 'none', borderRadius: '4px', cursor: 'pointer', marginTop: '10px' }}
+                        onClick={(e) => generateScripture(e)}
+                    >
+                        Generate Scripture
+                    </button>
                 </form>
 
-                <h1 style={{ marginTop: '20px' }}>
+                <h1 style={{ marginTop: '20px', fontSize: '1.5rem', fontWeight: 'bold', color: '#333' }}>
                     {currentScripture.book_name} {currentScripture.chapter}:
                     {currentScripture.verse}
                 </h1>
