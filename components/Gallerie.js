@@ -26,7 +26,8 @@ const items = [
         alt: 'Image 2',
         caption: (
             <>
-                Denn Gott hat die Menschen so sehr geliebt, dass er seinen einzigen Sohn für sie hergab. <br /> Jeder, der an ihn glaubt, wird nicht zugrunde gehen, sondern das ewige Leben haben. <br /> - Johannes 3,16
+                - Johannes 3,16 <br /> 
+                Denn Gott hat die Menschen so sehr geliebt, dass er seinen einzigen Sohn für sie hergab. <br /> Jeder, der an ihn glaubt, wird nicht zugrunde gehen, sondern das ewige Leben haben. 
             </>
         )
     },
