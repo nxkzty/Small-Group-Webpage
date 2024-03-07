@@ -3,8 +3,8 @@ import { Carousel } from 'primereact/carousel';
 
 const itemTemplate = (item) => {
     return (
-        <div style={{ overflow: 'hidden' }}>
-            <img src={item.url} alt={item.alt} style={{ height: '100%', width: '100%', objectFit: 'cover', borderRadius: '20px' }} />
+        <div style={{ overflow: 'hidden'}}>
+            <img src={item.url} alt={item.alt} style={{ height: '100%', width: '100%', objectFit: 'cover'}} />
             <div className="item-caption" style={{ textAlign: 'center', marginTop: '10px' }}>{item.caption}</div>
         </div>
     );
