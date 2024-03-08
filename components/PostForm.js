@@ -1,42 +1,109 @@
-import React, { useState } from 'react';
-import { Card } from 'primereact/card';
-import { Button } from 'primereact/button';
-import { InputText } from "primereact/inputtext";
-import { Editor } from 'primereact/editor';
+import { createPost, updatePost } from "@/lib/api/posts"
+import { useSession } from "@/lib/hooks/session"
+import { useRouter } from "next/router"
+import { useEffect, useState } from "react"
+import styles from "./Create.module.css"
 
-const CreateCardPage = () => {
-    const [cardTitle, setCardTitle] = useState('');
-    const [cardSubtitle, setCardSubtitle] = useState('');
-    const [cardContent, setCardContent] = useState('');
+const defaultModel = {
+    title: "",
+    text: ""
+}
 
-    const createCard = () => {
-        const newCard = {
-            title: cardTitle,
-            subTitle: cardSubtitle,
-            content: cardContent
-        };
-    };
+function validateModel(post) {
+    const errors = {
+        title: "",
+        text: ""
+    }
+    let isValid = true
+
+    if (post.title.trim().length === 0) {
+        errors.title = "Title cant't be empty"
+        isValid = false
+    }
+
+    if (post.text.trim().length === 0) {
+        errors.text = "Text cant't be empty"
+        isValid = false
+    }
+
+    return { errors, isValid }
+}
+
+export default function PostForm({ postToEdit }) {
+    const { session } = useSession()
+    const router = useRouter()
+    const [isLoading, setIsLoading] = useState(false)
+    const [errors, setErrors] = useState(defaultModel)
+    const [post, setPost] = useState(defaultModel)
+
+    useEffect(() => {
+        if (postToEdit) {
+            setPost(postToEdit)
+        }
+    }, [postToEdit])
+
+    const handleChange = (e) => {
+        const name = e.target.name
+        const value = e.target.value
+        setPost({
+            ...post,
+            [name]: value
+        })
+    }
+
+    const handleSubmit = async (e) => {
+        e.preventDefault()
+        setIsLoading(true)
+        setErrors(defaultModel)
+
+        const result = validateModel(post)
+
+        if (!result.isValid) {
+            setErrors(result.errors)
+            setIsLoading(false)
+            return
+        }
+        
+
+        if (post.id) {
+            try {
+                await updatePost(post, session.token)
+                alert("Post updated!")
+                router.push(`/posts/${post.id}`)
+            } catch (e) {
+                alert("Could not update post")
+            }
+        } else {
+            try {
+                const newPost = await createPost(post, session.token)
+                alert("Post created!")
+                router.push(`/posts/${newPost.id}`)
+            } catch (e) {
+                alert("Could not create post")
+            }
+        }
+        setIsLoading(false)
+    }
 
     return (
-        <div style={{ maxWidth: '600px', margin: '50px auto', padding: '20px', border: '1px solid #ccc', borderRadius: '5px', boxShadow: '0 0 10px rgba(0, 0, 0, 0.1)' }}>
-            <div className="card flex justify-content" style={{ marginTop: '30px', marginBottom: '30px' }}>
-                <span className={`p-float-label ${cardTitle && 'p-float-label-filled'}`}>
-                    <InputText style={{ width: '100%', padding: '10px', boxSizing: 'border-box', border: '1px solid #ccc', borderRadius: '4px' }} value={cardTitle} onChange={(e) => setCardTitle(e.target.value)} />
-                    <label htmlFor='cardTitle' style={{ display: 'block', marginBottom: '5px' }}>Title</label>
-                </span>
-            </div>
-            <div style={{ marginBottom: '30px' }}>
-                <span className={`p-float-label ${cardSubtitle && 'p-float-label-filled'}`}>
-                    <InputText style={{ width: '100%', padding: '10px', boxSizing: 'border-box', border: '1px solid #ccc', borderRadius: '4px' }} type="text" value={cardSubtitle} onChange={(e) => setCardSubtitle(e.target.value)} />
-                    <label htmlFor='cardSubtitle' style={{ display: 'block', marginBottom: '5px' }}>Subtitle</label>
-                </span>
-            </div>
-            <div style={{ marginBottom: '10px' }}>
-                <Editor value={cardContent} onTextChange={(e) => setCardContent(e.htmlValue)} style={{ height: '320px', border: '1px solid #ccc', borderRadius: '4px' }} />
-            </div>
-            <Button style={{ backgroundColor: '#4caf50', color: 'white', padding: '10px 15px', border: 'none', borderRadius: '4px', cursor: 'pointer' }} label="Create Card" onClick={createCard} />
-        </div>
-    );
-};
+        <div className={styles.postform}>
+            <form onSubmit={handleSubmit}>
+                <fieldset>
+                    <label>Title:</label>
+                    <input type="text" name="title" onChange={handleChange} value={post.title} />
+                    {errors.title && <div className={styles.error}>{errors.title}</div>}
+                </fieldset>
 
-export default CreateCardPage;
+                <fieldset>
+                    <label>Text:</label>
+                    <textarea name="text" onChange={handleChange} value={post.text} />
+                    {errors.text && <div className={styles.error}>{errors.text}</div>}
+                </fieldset>
+
+                <button disabled={isLoading}>
+                    {isLoading ? "...Loading" : "Submit"}
+                </button>
+            </form>
+        </div>
+    )
+}
