@@ -58,13 +58,17 @@ export default function Navigation() {
                 router.push('/roadmap');
             }
         },
-        {
-            label: 'Create',
-            icon: 'pi pi-book',
-            command: () => {
-                router.push('/posts/Create')
-            }
-        }
+        ...(user
+            ? [
+                  {
+                      label: 'Create',
+                      icon: 'pi pi-book',
+                      command: () => {
+                          router.push('/posts/Create');
+                      },
+                  },
+              ]
+            : []),
     ];
 
     const start = (
