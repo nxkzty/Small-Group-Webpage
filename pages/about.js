@@ -3,6 +3,7 @@ import React, { useRef, useState } from 'react';
 import { Button } from 'primereact/button';
 import { useFavicon } from 'primereact/hooks';
 import { Toast } from 'primereact/toast';
+import { Link, useHref } from 'react-router-dom';
 
 export default function BasicDemo() {
     const [favicon, setFavicon] = useState('');
@@ -16,6 +17,16 @@ export default function BasicDemo() {
         toast.current.show({ severity: 'info', summary: 'Info', detail: 'Smallgroup Info', life: 3000 });
     }
 
+
+    const handleButtonClickDiscord = () => {
+        window.location.href = 'https://discord.com';
+      };
+      const handleButtonClickInstagram = () => {
+        window.location.href = 'https://instagram.com';
+      };
+
+
+
     return (
         <>
             <header>
@@ -24,8 +35,8 @@ export default function BasicDemo() {
             </header>
             <footer>
                 <div className="card flex justify-content-center gap-2">
-                    <Button style={{marginTop: "20px", marginLeft: "20px", marginRight: "20px" }} icon="pi pi-discord" label="Discord" onClick={setFaviconToTwitter} />
-                    <Button icon="pi pi-instagram" label="Instagram" onClick={setFaviconToPrimeReact} className="p-button-secondary" />
+                    <Button style={{marginTop: "20px", marginRight: "20px" }} icon="pi pi-discord" label="Discord" onClick={handleButtonClickDiscord} />
+                    <Button icon="pi pi-instagram" label="Instagram" className="p-button-secondary" onClick={handleButtonClickInstagram}/>
                 </div>
             </footer>
         </>
@@ -33,3 +44,4 @@ export default function BasicDemo() {
 
     )
 }
+

@@ -1,8 +1,18 @@
 
 import React from 'react';
 import { Accordion, AccordionTab } from 'primereact/accordion';
+import {Divider} from 'primereact/divider';
+import { Button } from 'primereact/button';
 
 export default function BasicDemo() {
+
+
+    const handleButtonClickDiscord = () => {
+        window.location.href = 'https://discord.com';
+      };
+
+
+
     return (
         <div className="card">
             <Accordion activeIndex={0}>
@@ -31,6 +41,14 @@ export default function BasicDemo() {
                     </p>
                 </AccordionTab>
             </Accordion>
+
+            <Divider style={{marginTop: "7px", marginBottom: "10px"}}/>
+
+            <h3>If you have more Questions you can ask someome on our discord:</h3>
+            <Button style={{marginTop: "20px", marginRight: "20px" }} icon="pi pi-discord" label="Discord" onClick={handleButtonClickDiscord} />
+
+
+
         </div>
     )
 }
