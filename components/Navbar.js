@@ -50,7 +50,7 @@ export default function Navbar() {
             label: 'Create',
             icon: 'pi pi-book',
             command: () => {
-                router.push('/CreateCardPage')
+                router.push('/Create')
             }
         }
     ];

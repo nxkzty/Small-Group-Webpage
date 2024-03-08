@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Card } from 'primereact/card';
 import { Button } from 'primereact/button';
 import { InputText } from "primereact/inputtext";
+import { Editor } from 'primereact/editor';
 
 const CreateCardPage = () => {
     const [cardTitle, setCardTitle] = useState('');
@@ -31,16 +32,9 @@ const CreateCardPage = () => {
                 </span>
             </div>
             <div style={{ marginBottom: '10px' }}>
-                <span className={`p-float-label ${cardContent && 'p-float-label-filled'}`}>
-                    <InputText style={{ width: '100%', padding: '10px', boxSizing: 'border-box', border: '1px solid #ccc', borderRadius: '4px' }} type="text" value={cardContent} onChange={(e) => setCardContent(e.target.value)} />
-                    <label htmlFor='cardContent'>Content</label>
-                </span>
+                <Editor value={cardContent} onTextChange={(e) => setCardContent(e.htmlValue)} style={{ height: '320px', border: '1px solid #ccc', borderRadius: '4px' }} />
             </div>
             <Button style={{ backgroundColor: '#4caf50', color: 'white', padding: '10px 15px', border: 'none', borderRadius: '4px', cursor: 'pointer' }} label="Create Card" onClick={createCard} />
-
-            <Card title={cardTitle} subTitle={cardSubtitle} style={{ marginTop: '20px' }}>
-                <p>{cardContent}</p>
-            </Card>
         </div>
     );
 };
