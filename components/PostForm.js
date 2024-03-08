@@ -3,6 +3,7 @@ import { useSession } from "@/lib/hooks/session"
 import { useRouter } from "next/router"
 import { useEffect, useState } from "react"
 import styles from "./Create.module.css"
+import { Editor } from "primereact/editor";
 
 const defaultModel = {
     title: "",
@@ -77,13 +78,15 @@ export default function PostForm({ postToEdit }) {
             try {
                 const newPost = await createPost(post, session.token)
                 alert("Post created!")
-                router.push(`/posts/${newPost.id}`)
+                router.push(`/inputs`)
             } catch (e) {
                 alert("Could not create post")
             }
         }
         setIsLoading(false)
     }
+
+    
 
     return (
         <div className={styles.postform}>
@@ -96,7 +99,7 @@ export default function PostForm({ postToEdit }) {
 
                 <fieldset>
                     <label>Text:</label>
-                    <textarea name="text" onChange={handleChange} value={post.text} />
+                    <Editor value={post.text} onTextChange={(e) => setPost({ ...post, text: e.htmlValue })} style={{ height: '320px' }} />
                     {errors.text && <div className={styles.error}>{errors.text}</div>}
                 </fieldset>
 
@@ -105,5 +108,5 @@ export default function PostForm({ postToEdit }) {
                 </button>
             </form>
         </div>
-    )
+    );
 }

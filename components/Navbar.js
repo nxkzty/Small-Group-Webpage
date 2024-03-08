@@ -67,7 +67,7 @@ export default function Navbar() {
             label: 'Create',
             icon: 'pi pi-book',
             command: () => {
-                router.push('/Create')
+                router.push('/posts/Create')
             }
         }
     ];
