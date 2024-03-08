@@ -1,5 +1,5 @@
 import PostForm from "@/components/PostForm"
-import styles from "./inputs.module.css"
+import styles from "../inputs.module.css"
 
 export default function PostsCreatePage() {
     return (
