@@ -5,6 +5,7 @@ import { RadioButton } from "primereact/radiobutton";
 function IndexPage() {
     const [searchFilter, setSearchFilter] = useState(1);
     const [verseOfTheDay, setVerseOfTheDay] = useState('');
+    const [loading, setLoading] = useState(false);
     const [currentScripture, setCurrentScripture] = useState({
         book_name: "John",
         chapter: 3,
@@ -79,9 +80,9 @@ function IndexPage() {
         { book: "3 John", chapters: 1 },
         { book: "Jude", chapters: 1 },
         { book: "Revelation", chapters: 22 },
-      ]);
-      
-      const generateScripture = async (e) => {
+    ]);
+
+    const generateScripture = async (e) => {
         e.preventDefault();
 
         setCurrentScripture({
@@ -90,6 +91,8 @@ function IndexPage() {
             verse: 1,
             text: "..."
         });
+
+        setLoading(true);
 
         let i = 0;
 
@@ -101,15 +104,27 @@ function IndexPage() {
         var chapter = Math.floor(Math.random() * bible[i].chapters + 1);
         var verse = (chapter === 117 ? 2 : Math.floor(Math.random() * 8 + 1));
 
-        const res = await fetch(`https://bible-api.com/${book}${chapter}:${verse}?translation=kjv`);
-        const data = await res.json();
+        try {
+            const res = await fetch(`https://bible-api.com/${book}${chapter}:${verse}?translation=kjv`);
+            const data = await res.json();
 
-        setCurrentScripture({
-            book_name: data.verses[0].book_name,
-            chapter: data.verses[0].chapter,
-            verse: data.verses[0].verse,
-            text: data.verses[0].text
-        });
+            setCurrentScripture({
+                book_name: data.verses[0].book_name,
+                chapter: data.verses[0].chapter,
+                verse: data.verses[0].verse,
+                text: data.verses[0].text
+            });
+        } finally {
+            setLoading(false);
+        }
+    };
+
+    const load = () => {
+        setLoading(true);
+
+        setTimeout(() => {
+            setLoading(false);
+        }, 290);
     };
 
     return (
@@ -139,7 +154,7 @@ function IndexPage() {
                                 checked={searchFilter === 2}
                                 onChange={() => setSearchFilter(2)}
                             />
-                           Old Testament
+                            Old Testament
                         </label>
 
                         <label>
@@ -152,13 +167,15 @@ function IndexPage() {
                             New Testament
                         </label>
                     </div>
-
-                    <button
-                        style={{ backgroundColor: '#007bff', color: '#fff', padding: '8px', border: 'none', borderRadius: '4px', cursor: 'pointer', marginTop: '10px' }}
-                        onClick={(e) => generateScripture(e)}
-                    >
-                        Generate Scripture
-                    </button>
+                    <div className='card flex flex-wrap justify-content-center gap-3'>
+                        <button
+                            style={{ backgroundColor: '#007bff', color: '#fff', padding: '8px', border: 'none', borderRadius: '4px', cursor: 'pointer', marginTop: '10px' }}
+                            disabled={loading}
+                            onClick={(e) => { load(); generateScripture(e) }}
+                        >
+                            {loading ? 'Loading...' : 'Generate Scripture'}
+                        </button>
+                    </div>
                 </form>
 
                 <h1 style={{ marginTop: '20px', fontSize: '1.5rem', fontWeight: 'bold', color: '#333' }}>
