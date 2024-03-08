@@ -28,7 +28,7 @@ export default function IndexPage() {
 
     return (
         <div className={styles.posts}>
-            <h1>Welcome to my blog!</h1>
+            <h1>Inputs</h1>
             {posts.map((post) => (
                 <article key={post.id}>
                     <h2>
