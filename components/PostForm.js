@@ -92,7 +92,7 @@ export default function PostForm({ postToEdit }) {
         <div className={styles.postform}>
             <form onSubmit={handleSubmit}>
                 <fieldset>
-                    <label>Title:</label>
+                    <label htmlFor="username">Title:</label>
                     <input type="text" name="title" onChange={handleChange} value={post.title} />
                     {errors.title && <div className={styles.error}>{errors.title}</div>}
                 </fieldset>
