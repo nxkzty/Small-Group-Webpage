@@ -99,7 +99,7 @@ export default function PostForm({ postToEdit }) {
 
                 <fieldset>
                     <label>Text:</label>
-                    <Editor value={post.text} onChange={handleChange} style={{ height: '320px' }} />
+                    <Editor value={post.text} onTextChange={(e) => setPost({ ...post, text: e.htmlValue })} style={{ height: '320px' }} />
                     {errors.text && <div className={styles.error}>{errors.text}</div>}
                 </fieldset>
 
