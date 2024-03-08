@@ -10,15 +10,16 @@ import Link from 'next/link';
 
 export default function Navigation() {
     const { session, signOut } = useSession()
-    const [isOpen, setIsOpen] = useState(false)
-    const user = session.user
-    const router = useRouter()
+    const [isOpen, setIsOpen] = useState(false);
+    const [visible, setVisible] = useState(false);
+    const user = session.user;
+    const router = useRouter();
 
     const handleClick = async (e) => {
-        e.preventDefault()
-        signOut()
-        setIsOpen(false)
-        router.push("/")
+        e.preventDefault();
+        signOut();
+        setIsOpen(false);
+        router.push("/");
     }
 
     const items = [
@@ -61,7 +62,7 @@ export default function Navigation() {
             label: 'Create',
             icon: 'pi pi-book',
             command: () => {
-                router.push('/posts/create')
+                router.push('/posts/Create')
             }
         }
     ];
@@ -82,7 +83,7 @@ export default function Navigation() {
                         <Button label='Logout' onClick={handleClick}/>
                     </Link>
                 )}
-                <Sidebar onHide={() => setIsOpen(false)} className="w-full md:w-20rem lg:w-30rem">
+                <Sidebar visible={isOpen} onHide={() => setIsOpen(false)} className="w-full md:w-20rem lg:w-30rem">
                     <h2>Smallgroup</h2>
                     <p>
                         Wilkommen auf unsere Smallgroup Webpage. Hier finden Sie alle Informationen über unsere Gruppe und Glauben. Viel Vergnügen.
