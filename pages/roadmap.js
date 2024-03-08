@@ -5,10 +5,10 @@ import { Button } from 'primereact/button';
 
 export default function App() {
     const events = [
-        { status: 'Gegründet', date: '15/7/2024', icon: 'pi pi-shopping-cart', color: 'lightGray', image: 'game-controller.jpg' },
-        { status: '1. Mal Smallgroup', date: '15/10/2024', icon: 'pi pi-cog', color: 'lightGray' },
-        { status: 'Erstellung von Notion', date: '15/10/2024', icon: 'pi pi-shopping-cart', color: 'lightGray'},
-        { status: 'Website', date: '16/10/2024', icon: 'pi pi-check', color: 'lightGray' }
+        { status: 'Gegründet', date: '15/7/2024', icon: 'pi pi-sitemap', color: 'lightGray'},
+        { status: '1. Mal Smallgroup', date: '15/10/2024', icon: 'pi pi-users', color: 'lightGray' },
+        { status: 'Erstellung von Notion', date: '15/10/2024', icon: 'pi pi-wrench', color: 'lightGray'},
+        { status: 'Website', date: '16/10/2024', icon: 'pi pi-wifi', color: 'lightGray' }
     ];
     const customizedMarker = (item) => {
         return (
