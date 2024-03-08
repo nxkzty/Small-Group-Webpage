@@ -1,42 +1,39 @@
+.postform {}
 
-
-.container {
-    max-width: 600px;
-    margin: 20px auto;
-    padding: 20px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+.error {
+    color: red;
+    margin-top: 0.5em;
 }
 
-.label {
-    display: block;
-    margin-bottom: 5px;
-}
-
-.input,
-.textarea {
-    width: 100%;
-    padding: 8px;
-    margin-bottom: 10px;
-    box-sizing: border-box;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-}
-
-.button {
-    background-color: #4caf50;
-    color: white;
-    padding: 10px 15px;
+.postform form {
     border: none;
-    border-radius: 4px;
-    cursor: pointer;
+    min-width: 320px;
+    align-self: center;
 }
 
-.button:hover {
-    background-color: #45a049;
+.postform fieldset {
+    border: none;
+    padding: 0.5em;
+    display: flex;
+    flex-direction: column;
 }
 
-.card-preview {
-    margin-top: 20px;
+.postform label {
+    border: none;
+    padding-bottom: 0.5em;
+}
+
+.postform input {
+    padding: 0.5em;
+}
+
+.postform textarea {
+    padding: 0.5em;
+    resize: vertical;
+    min-height: 320px;
+    font: inherit;
+}
+
+.postform button {
+    margin-left: 0.5em;
 }
