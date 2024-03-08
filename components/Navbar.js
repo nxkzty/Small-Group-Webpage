@@ -11,7 +11,6 @@ import Link from 'next/link';
 export default function Navigation() {
     const { session, signOut } = useSession()
     const [isOpen, setIsOpen] = useState(false);
-    const [visible, setVisible] = useState(false);
     const user = session.user;
     const router = useRouter();
 
@@ -77,16 +76,21 @@ export default function Navigation() {
         </>
     );
 
+    const end = (
+        <>
+            {!user && <Link href="/login"><Button label='Login'/></Link>}
+            {user && (
+                <Link href="/login">
+                    <Button style={{}} label='Logout' onClick={handleClick}/>
+                </Link>
+            )}
+        </>
+    );
+
     return (
         <div>
-            <Menubar model={items} start={start} />
+            <Menubar model={items} start={start} end={end} />
             <div className="card flex justify-content-center">
-                {!user && <Link href="/login"><Button label='Login'/></Link>}
-                {user && (
-                    <Link href="/login">
-                        <Button label='Logout' onClick={handleClick}/>
-                    </Link>
-                )}
                 <Sidebar visible={isOpen} onHide={() => setIsOpen(false)} className="w-full md:w-20rem lg:w-30rem">
                     <h2>Smallgroup</h2>
                     <p>

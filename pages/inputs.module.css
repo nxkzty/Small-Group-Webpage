@@ -1,3 +1,31 @@
-.cards{
-    margin-top: 20px;
+.posts {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.posts h1,
+.posts h2 {
+    margin: 0.5em 0 0.5em 0;
+}
+
+.posts a {
+    align-self: flex-end;
+}
+
+.posts ul {
+    list-style-type: none;
+}
+
+.post article > a {
+    color: blue;
+    margin-left: auto;
+    margin-top: 1em;
+    cursor: pointer;
+}
+
+.date {
+    color: blue;
+    font-size: 0.75em;
+    margin-left: 0.5em;
 }
