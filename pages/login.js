@@ -3,6 +3,9 @@ import { useSession } from "@/lib/hooks/session"
 import { useRouter } from "next/router"
 import { useState } from "react"
 import styles from "./login.module.css"
+import { InputText } from 'primereact/inputtext';
+import { Button } from "primereact/button"
+
 
 const defaultModel = {
     email: "",
@@ -64,9 +67,9 @@ export default function LoginPage() {
             const resp = await login(model)
             signIn(resp)
             const url = router.query.url
-            if(url) {
+            if (url) {
                 router.push(url)
-            }  else {
+            } else {
                 router.push("/")
             }
         } catch (e) {
@@ -79,30 +82,24 @@ export default function LoginPage() {
     }
 
     return session.user ? null : (
+        <>
         <div className={styles.login}>
-            <h1>Login (adamadmin@blog.ch // admin1234)</h1>
-
             {errors.login && <h2 className={styles.error}>{errors.login}</h2>}
 
-            <form onSubmit={handleSubmit} className={styles.loginform}>
-                <fieldset>
-                    <label>Email:</label>
-                    <input type="text" name="email" onChange={handleChange} value={model.email} autoComplete="email" required />
-                    {errors.email && <div className={styles.error}>{errors.email}</div>}
-                </fieldset>
+            <form onSubmit={handleSubmit} style={{margin: "10px", marginTop: "20px"}}>
+                <label style={{margin: "10px"}}>Email:</label>
+                <InputText type="text" name="email" onChange={handleChange} value={model.email} autoComplete="email" required />
+                {errors.email && <div className={styles.error}>{errors.email}</div>}
 
-                <fieldset>
-                    <label>Password:</label>
-                    <input type="password" name="password" onChange={handleChange} value={model.password} autoComplete="current-password" required />
-                    {errors.password && <div className={styles.error}>{errors.password}</div>}
-                </fieldset>
+                <label style={{margin: "10px"}}>Password:</label>
+                <InputText type="password" name="password" onChange={handleChange} value={model.password} autoComplete="current-password" required />
+                {errors.password && <div className={styles.error}>{errors.password}</div>}
 
-                <fieldset>
-                    <button disabled={isLoading} type="submit">
-                        {isLoading ? "Loading..." : "Login"}
-                    </button>
-                </fieldset>
+                <Button disabled={isLoading} type="submit" label={isLoading ? "Loading..." : "Login"} style={{marginLeft: "10px"}} />
             </form>
         </div>
+
+        </>
+
     )
 }

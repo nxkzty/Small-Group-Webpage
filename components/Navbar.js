@@ -19,6 +19,11 @@ export default function Navbar() {
         router.push("/")
     }
 
+    const handleLogin = async (e) => {
+        e.preventDefault()
+        router.push("/login")
+    }
+
 
 
 
@@ -64,13 +69,6 @@ export default function Navbar() {
             command: () => {
                 router.push('/Create')
             }
-        },
-        {
-            label: 'Login',
-            icon: 'pi pi-book',
-            command: () => {
-                router.push('/login')
-            }
         }
     ];
 
@@ -84,16 +82,23 @@ export default function Navbar() {
 
     const end =
         <>
-            <Button label="logoud" onClick={handleClick}>
+            <div>
+                <Button label="logout" onClick={handleClick} style={{marginRight: "10px"}}>
 
-            </Button>
+                </Button>
+                <Button label="Login" onClick={handleLogin}>
+
+                </Button>
+            </div>
+
+
 
         </>
 
 
     return (
         <div >
-            <Menubar model={items} start={start}  end={end} />
+            <Menubar model={items} start={start} end={end} />
             <div className="card flex justify-content-center">
                 <Sidebar visible={visible} onHide={() => setVisible(false)} className="w-full md:w-20rem lg:w-30rem">
                     <h2>Smallgroup</h2>
