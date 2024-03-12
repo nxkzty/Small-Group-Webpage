@@ -4,6 +4,7 @@ import { useRouter } from "next/router"
 import { useEffect, useState } from "react"
 import styles from "./Create.module.css"
 import { Editor } from "primereact/editor";
+import {Button} from "primereact/button"
 
 const defaultModel = {
     title: "",
@@ -64,7 +65,7 @@ export default function PostForm({ postToEdit }) {
             setIsLoading(false)
             return
         }
-        
+
 
         if (post.id) {
             try {
@@ -86,16 +87,11 @@ export default function PostForm({ postToEdit }) {
         setIsLoading(false)
     }
 
-    
+
 
     return (
         <div className={styles.postform}>
             <form onSubmit={handleSubmit}>
-                <fieldset>
-                    <label>Title:</label>
-                    <input type="text" name="title" onChange={handleChange} value={post.title} />
-                    {errors.title && <div className={styles.error}>{errors.title}</div>}
-                </fieldset>
 
                 <fieldset>
                     <label>Text:</label>
@@ -103,9 +99,17 @@ export default function PostForm({ postToEdit }) {
                     {errors.text && <div className={styles.error}>{errors.text}</div>}
                 </fieldset>
 
-                <button disabled={isLoading}>
-                    {isLoading ? "...Loading" : "Submit"}
-                </button>
+                <fieldset>
+                    <label>Title:</label>
+                    <input type="text" name="title" onChange={handleChange} value={post.title} />
+                    {errors.title && <div className={styles.error}>{errors.title}</div>}
+                </fieldset>
+
+
+
+                <Button label="Submit" disabled={isLoading}>
+                    {isLoading}
+                </Button>
             </form>
         </div>
     );

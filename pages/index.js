@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import Gallerie from '../components/Gallerie';
 import { RadioButton } from "primereact/radiobutton";
+import {Button} from "primereact/button"
 
 function IndexPage() {
     const [searchFilter, setSearchFilter] = useState(1);
@@ -134,6 +135,10 @@ function IndexPage() {
                 <blockquote style={{ borderLeft: '5px solid #007bff', padding: '10px', fontStyle: 'italic' }}>
                     <p>{currentScripture.text}</p>
                 </blockquote>
+                <h1 style={{ marginTop: '20px', fontSize: '1.5rem', fontWeight: 'bold', color: '#333' }}>
+                    {currentScripture.book_name} {currentScripture.chapter}:
+                    {currentScripture.verse}
+                </h1>
 
                 <form style={{ marginTop: '20px' }}>
                     <div style={{ display: 'flex', alignItems: 'center' }}>
@@ -168,20 +173,17 @@ function IndexPage() {
                         </label>
                     </div>
                     <div className='card flex flex-wrap justify-content-center gap-3'>
-                        <button
-                            style={{ backgroundColor: '#007bff', color: '#fff', padding: '8px', border: 'none', borderRadius: '4px', cursor: 'pointer', marginTop: '10px' }}
+                        <Button
+                            label='Generate Scripture'
+                            style={{marginTop: "15px"}}
                             disabled={loading}
                             onClick={(e) => { load(); generateScripture(e) }}
                         >
-                            {loading ? 'Loading...' : 'Generate Scripture'}
-                        </button>
+                        </Button>
                     </div>
                 </form>
 
-                <h1 style={{ marginTop: '20px', fontSize: '1.5rem', fontWeight: 'bold', color: '#333' }}>
-                    {currentScripture.book_name} {currentScripture.chapter}:
-                    {currentScripture.verse}
-                </h1>
+                
             </div>
         </>
     );
