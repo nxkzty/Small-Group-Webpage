@@ -63,13 +63,7 @@ Jeremy und Leon</strong>
 
                 <Divider layout='vertical' />
 
-                <Image
-                    width={1080}
-                    height={500}
-                    src='/jeremy_leon.png'
-                    alt="Jeremy und Leon"
-                    style={{borderRadius: "10px"}}
-                />
+
                 <TerminalAbout/>
 
                 <footer>
