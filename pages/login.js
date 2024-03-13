@@ -3,6 +3,7 @@ import { useSession } from "@/lib/hooks/session"
 import { useRouter } from "next/router"
 import { useState } from "react"
 import styles from "./login.module.css"
+import { Button } from "primereact/button"
 
 const defaultModel = {
     email: "",
@@ -96,7 +97,7 @@ export default function LoginPage() {
                         {errors.password && <div className={styles["error-message"]}>{errors.password}</div>}
                     </div>
 
-                    <button disabled={isLoading} type="submit" className={styles["submit-button"]}>{isLoading ? "Loading..." : "Login"}</button>
+                    <Button disabled={isLoading} type="submit" className={styles["submit-button"]}>{isLoading ? "Loading..." : "Login"}</Button>
                 </form>
             </div>
         </div>
