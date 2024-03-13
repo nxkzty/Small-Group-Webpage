@@ -5,11 +5,11 @@ import { Toast } from 'primereact/toast';
 import Image from 'next/image';
 import { Divider } from 'primereact/divider';
 
-import style from './BasicDemo.module.css'; 
+import style from './AboutPage.module.css'; 
 import { Terminal } from 'primereact/terminal';
 import TerminalAbout from '@/components/Terminal';
 
-export default function BasicDemo() {
+export default function AboutPage() {
     const [favicon, setFavicon] = useState('');
     const toast = useRef(null);
 

@@ -4,7 +4,7 @@ import { Accordion, AccordionTab } from 'primereact/accordion';
 import {Divider} from 'primereact/divider';
 import { Button } from 'primereact/button';
 
-export default function BasicDemo() {
+export default function QuestionPage() {
 
 
     const handleButtonClickDiscord = () => {

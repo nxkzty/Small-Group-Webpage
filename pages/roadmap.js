@@ -3,7 +3,7 @@ import { Timeline } from 'primereact/timeline';
 import { Card } from 'primereact/card';
 import { Button } from 'primereact/button';
 
-export default function App() {
+export default function RoadmapPage() {
     const events = [
         { status: 'Gegründet', date: '15/7/2024', icon: 'pi pi-sitemap', color: 'lightGray'},
         { status: '1. Mal Smallgroup', date: '15/10/2024', icon: 'pi pi-users', color: 'lightGray' },
