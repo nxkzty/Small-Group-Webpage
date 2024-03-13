@@ -52,7 +52,7 @@ Wir freuen uns sehr, dass du den Weg zu uns gefunden hast. Unsere Kleingruppe is
 
 Unser Ziel ist es, einen Raum zu schaffen, in dem wir uns gegenseitig <strong>ermutigen, herausfordern und unterstützen</strong>  können. Egal, wo du in deinem Leben stehst, ob du gerade eine schwierige Zeit durchmachst oder einfach nur nach Gleichgesinnten suchst, um gemeinsam zu wachsen <strong>- hier bist du willkommen. </strong><br />
 
-In unserer Kleingruppe treffen sich Menschen verschiedener Hintergründe, Lebenssituationen und Lebensphasen. Wir glauben fest daran, dass Vielfalt eine Stärke ist und dass wir voneinander lernen können. Durch gemeinsame Gespräche, Gebete und Aktivitäten streben wir danach, uns gegenseitig zu unterstützen und zu ermutigen, unsere individuellen Ziele zu erreichen und unsere <strong>Beziehung zu Gott zu vertiefen.</strong><br />
+In unserer Kleingruppe treffen sich Menschen verschiedener Hintergründe, Lebenssituationen und Lebensphasen. Wir glauben fest daran, dass Vielfalt eine Stärke ist und dass wir voneinander lernen können. Durch gemeinsame <strong>Gespräche, Gebete und Aktivitäten</strong>  streben wir danach, uns gegenseitig zu unterstützen und zu ermutigen, unsere individuellen Ziele zu erreichen und unsere <strong>Beziehung zu Gott zu vertiefen.</strong><br />
 
 Wir laden dich herzlich ein, an unseren Treffen teilzunehmen und Teil unserer Gemeinschaft zu werden. Egal, ob du schon lange dabei bist oder gerade erst dazukommst, es gibt immer Platz für dich bei uns.<br />
 
