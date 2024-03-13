@@ -2,7 +2,6 @@ import { login } from "@/lib/api/auth"
 import { useSession } from "@/lib/hooks/session"
 import { useRouter } from "next/router"
 import { useState } from "react"
-import styles from "./login.module.css"
 import { InputText } from 'primereact/inputtext';
 import { Button } from "primereact/button"
 
@@ -80,25 +79,24 @@ export default function LoginPage() {
             setIsLoading(false)
         }
     }
-    
 
     return session.user ? null : (
         <>
-        <div className={styles.login}>
-            {errors.login && <h2 className={styles.error}>{errors.login}</h2>}
+            <div>
+                {errors.login && <h2 className={styles.error}>{errors.login}</h2>}
 
-            <form onSubmit={handleSubmit} style={{margin: "10px", marginTop: "20px"}}>
-                <label style={{margin: "10px"}}>Email:</label>
-                <InputText type="text" name="email" onChange={handleChange} value={model.email} autoComplete="email" required />
-                {errors.email && <div className={styles.error}>{errors.email}</div>}
+                <form onSubmit={handleSubmit} style={{ margin: "10px", marginTop: "20px" }}>
+                    <label style={{ margin: "10px" }}>Email:</label>
+                    <InputText type="text" name="email" onChange={handleChange} value={model.email} autoComplete="email" required />
+                    {errors.email && <div className={styles.error}>{errors.email}</div>}
 
-                <label style={{margin: "10px"}}>Password:</label>
-                <InputText type="password" name="password" onChange={handleChange} value={model.password} autoComplete="current-password" required />
-                {errors.password && <div className={styles.error}>{errors.password}</div>}
+                    <label style={{ margin: "10px" }}>Password:</label>
+                    <InputText type="password" name="password" onChange={handleChange} value={model.password} autoComplete="current-password" required />
+                    {errors.password && <div className={styles.error}>{errors.password}</div>}
 
-                <Button disabled={isLoading} type="submit" label={isLoading ? "Loading..." : "Login"} style={{marginLeft: "10px"}} />
-            </form>
-        </div>
+                    <Button disabled={isLoading} type="submit" label={isLoading ? "Loading..." : "Login"} style={{ marginLeft: "10px" }} />
+                </form>
+            </div>
 
         </>
 

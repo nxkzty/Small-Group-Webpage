@@ -16,13 +16,12 @@ export default function MyApp({ Component, pageProps }) {
             <Head>
                 <link rel="icon" href="https://cdn1.iconfinder.com/data/icons/winter-119/48/Jesus_Christ-512.png" type="image/x-icon"></link>
             </Head>
-            <Navbar/>
+            <Navbar />
 
 
             <main className="page">
-                { (!pageProps.secured || isSignedIn) && <Component {...pageProps}/>}
+                {(!pageProps.secured || isSignedIn) && <Component {...pageProps} />}
             </main>
         </>
-      );
+    );
 }
-         

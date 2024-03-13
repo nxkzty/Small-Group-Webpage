@@ -17,7 +17,7 @@
     list-style-type: none;
 }
 
-.post article > a {
+.post article>a {
     color: blue;
     margin-left: auto;
     margin-top: 1em;

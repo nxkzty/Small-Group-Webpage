@@ -24,8 +24,6 @@ export default function IndexPage() {
         return { __html: rawHTML };
     };
 
-
-
     return (
         <div className={styles.posts}>
             <h1>Inputs</h1>
@@ -37,11 +35,11 @@ export default function IndexPage() {
                     </h2>
 
                     <p dangerouslySetInnerHTML={renderHTML(post.text.substring(0, 600) + "...")} />
-                    
-                        <Link href={`/posts/${post.id}`} className={styles.readmore}>
-                            <Button label="Read More" rounded />
-                        </Link>
-                    
+
+                    <Link href={`/posts/${post.id}`} className={styles.readmore}>
+                        <Button label="Read More" rounded />
+                    </Link>
+
                 </article>
             ))}
         </div>

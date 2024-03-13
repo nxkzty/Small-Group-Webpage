@@ -2,7 +2,7 @@ import { createPost, updatePost } from "@/lib/api/posts"
 import { useSession } from "@/lib/hooks/session"
 import { useRouter } from "next/router"
 import { useEffect, useState } from "react"
-import styles from "./Create.module.css"
+import styles from "./PostForm.module.css"
 import { Editor } from "primereact/editor";
 import { Button } from "primereact/button"
 
@@ -31,7 +31,7 @@ function validateModel(post) {
     return { errors, isValid }
 }
 
-export default function PostForm({ postToEdit,  }) {
+export default function PostForm({ postToEdit, }) {
     const { session } = useSession()
     const router = useRouter()
     const [isLoading, setIsLoading] = useState(false)
