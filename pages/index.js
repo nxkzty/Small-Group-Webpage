@@ -11,7 +11,7 @@ function IndexPage() {
         book_name: "John",
         chapter: 3,
         verse: 16,
-        text: "Auf einen Freund kannst du dich immer verlassen; wenn es dir schlecht geht, ist er für dich wie ein Bruder."
+        text: "For God so loved the world, that he gave his only Son, that whoever believes in him should not perish but have eternal life."
     });
 
     const [bible] = useState([
