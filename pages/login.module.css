@@ -32,6 +32,7 @@
     padding: 10px;
     border-radius: 5px;
     border: 1px solid #ccc;
+    font-family: Arial, Helvetica, sans-serif;
 }
 
 .error-message {
