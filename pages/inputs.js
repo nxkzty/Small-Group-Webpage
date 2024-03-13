@@ -2,7 +2,6 @@ import { getAllPosts } from "@/lib/api/posts";
 import { formatDate } from "@/lib/formatDate";
 import Link from "next/link";
 import { useEffect, useState } from "react";
-import styles from "./index.module.css";
 import { Button } from "primereact/button";
 
 export default function IndexPage() {
@@ -25,18 +24,18 @@ export default function IndexPage() {
     };
 
     return (
-        <div className={styles.posts}>
+        <div >
             <h1>Inputs</h1>
             {posts.map((post) => (
                 <article key={post.id}>
                     <h2>
                         {post.title}
-                        <span className={styles.date}>{formatDate(post.createdAt)}</span>
+                        <span >{formatDate(post.createdAt)}</span>
                     </h2>
 
                     <p dangerouslySetInnerHTML={renderHTML(post.text.substring(0, 600) + "...")} />
 
-                    <Link href={`/posts/${post.id}`} className={styles.readmore}>
+                    <Link href={`/posts/${post.id}`} >
                         <Button label="Read More" rounded />
                     </Link>
 

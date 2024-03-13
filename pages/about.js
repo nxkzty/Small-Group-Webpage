@@ -63,19 +63,8 @@ export default function AboutPage() {
 
                 <Divider layout='vertical' />
 
-<<<<<<< HEAD
-                <Image
-                    width={1080}
-                    height={500}
-                    src='/jeremy_leon.png'
-                    alt="Jeremy und Leon"
-                    style={{ borderRadius: "10px" }}
-                />
+               
                 <TerminalAbout />
-=======
-
-                <TerminalAbout/>
->>>>>>> 9725a2024cf474cda9e4e6715fcfd3a1cd9787d0
 
                 <footer>
                     <div className="card flex justify-content-center gap-2">
