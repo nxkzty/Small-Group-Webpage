@@ -1,6 +1,0 @@
-
-[
-  {"id": 1, "name": "Product 1", "price": 20, "inventoryStatus": "INSTOCK", "imageUrl": "https://i.pinimg.com/236x/b3/3a/dd/b33addbff294ddf815e9ac1d8eec5e66.jpg"},
-  {"id": 2, "name": "Product 2", "price": 30, "inventoryStatus": "LOWSTOCK", "imageUrl": "https://i.pinimg.com/236x/b3/3a/dd/b33addbff294ddf815e9ac1d8eec5e66.jpg"}
-
-]
