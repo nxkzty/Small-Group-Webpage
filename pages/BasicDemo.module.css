@@ -1,0 +1,15 @@
+.title {
+    color: grey;
+    text-align: center; 
+    display: flex;
+    align-items: center;
+    justify-content: center; 
+  }
+  
+.img{
+    margin-right: 5px;
+}
+.text{
+  color: grey;
+  font-size: 18px;
+}
