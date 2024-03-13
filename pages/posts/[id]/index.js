@@ -33,7 +33,7 @@ export default function PostPage() {
             try {
                 await deletePost(post.id, session.token);
                 alert("Post deleted!");
-                router.push("/");
+                router.push("/inputs");
             }
             catch (e) {
                 alert("Ein Fehler ist aufgetreten.");

@@ -63,6 +63,7 @@ export default function AboutPage() {
 
                 <Divider layout='vertical' />
 
+<<<<<<< HEAD
                 <Image
                     width={1080}
                     height={500}
@@ -71,6 +72,10 @@ export default function AboutPage() {
                     style={{ borderRadius: "10px" }}
                 />
                 <TerminalAbout />
+=======
+
+                <TerminalAbout/>
+>>>>>>> 9725a2024cf474cda9e4e6715fcfd3a1cd9787d0
 
                 <footer>
                     <div className="card flex justify-content-center gap-2">
