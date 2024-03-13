@@ -37,7 +37,7 @@ export default function PostForm({ postToEdit }) {
     const [isLoading, setIsLoading] = useState(false)
     const [errors, setErrors] = useState(defaultModel)
     const [post, setPost] = useState(defaultModel)
-
+    
     useEffect(() => {
         if (postToEdit) {
             setPost(postToEdit)

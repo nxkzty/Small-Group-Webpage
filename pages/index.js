@@ -143,7 +143,7 @@ function IndexPage() {
                 <form style={{ marginTop: '20px' }}>
                     <div style={{ display: 'flex', alignItems: 'center' }}>
                         <label style={{ marginRight: '10px' }}>
-                            <input
+                            <RadioButton style={{ marginRight: '10px' }}
                                 type="radio"
                                 value={1}
                                 checked={searchFilter === 1}
@@ -153,8 +153,7 @@ function IndexPage() {
                         </label>
 
                         <label style={{ marginRight: '10px' }}>
-                            <input
-                                type="radio"
+                            <RadioButton style={{marginRight: '5px'}}
                                 value={2}
                                 checked={searchFilter === 2}
                                 onChange={() => setSearchFilter(2)}
@@ -163,7 +162,7 @@ function IndexPage() {
                         </label>
 
                         <label>
-                            <input
+                            <RadioButton style={{ marginRight: '10px' }}
                                 type="radio"
                                 value={3}
                                 checked={searchFilter === 3}
