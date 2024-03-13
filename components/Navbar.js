@@ -59,14 +59,14 @@ export default function Navigation() {
         },
         ...(user
             ? [
-                  {
-                      label: 'Create',
-                      icon: 'pi pi-book',
-                      command: () => {
-                          router.push('/posts/Create');
-                      },
-                  },
-              ]
+                {
+                    label: 'Create',
+                    icon: 'pi pi-book',
+                    command: () => {
+                        router.push('/posts/Create');
+                    },
+                },
+            ]
             : []),
     ];
 
@@ -78,10 +78,10 @@ export default function Navigation() {
 
     const end = (
         <>
-            {!user && <Link href="/login"><Button label='Login'/></Link>}
+            {!user && <Link href="/login"><Button label='Login' /></Link>}
             {user && (
                 <Link href="/login">
-                    <Button style={{}} label='Logout' onClick={handleClick}/>
+                    <Button style={{}} label='Logout' onClick={handleClick} />
                 </Link>
             )}
         </>

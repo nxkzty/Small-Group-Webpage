@@ -7,7 +7,7 @@ export default function PostsCreatePage() {
             <h1>Create new post</h1>
             <PostForm />
         </div>
-    ) 
+    )
 }
 
 export async function getStaticProps(context) {

@@ -14,7 +14,7 @@ export default function PostPage() {
     const [post, setPost] = useState(null);
 
     useEffect(() => {
-        if(!id) return;
+        if (!id) return;
         const loadPost = async () => {
             try {
                 const post = await getPostById(id);
@@ -27,15 +27,15 @@ export default function PostPage() {
         loadPost();
     }, [id]);
 
-    const handleDeleteClick = async (e) => { 
+    const handleDeleteClick = async (e) => {
         e.preventDefault();
         if (confirm("Delete post?")) {
             try {
                 await deletePost(post.id, session.token);
                 alert("Post deleted!");
-                router.push("/");
+                router.push("/inputs");
             }
-            catch(e) {
+            catch (e) {
                 alert("Ein Fehler ist aufgetreten.");
             }
         }
@@ -56,7 +56,7 @@ export default function PostPage() {
                     user && (
                         <>
                             <Link href={`/posts/${post.id}/edit`}>
-                                <Button label="Edit" style={{marginRight: "20px"}}  />
+                                <Button label="Edit" style={{ marginRight: "20px" }} />
                             </Link>
 
                             <Button label="Delete" onClick={handleDeleteClick} />

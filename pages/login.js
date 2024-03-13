@@ -6,7 +6,6 @@ import styles from "./login.module.css"
 import { InputText } from 'primereact/inputtext';
 import { Button } from "primereact/button"
 
-
 const defaultModel = {
     email: "",
     password: ""
@@ -33,74 +32,75 @@ function validateModel(model) {
 }
 
 export default function LoginPage() {
-    const { session, signIn } = useSession()
-    const router = useRouter()
+    const { session, signIn } = useSession();
+    const router = useRouter();
 
-    const [errors, setErrors] = useState(defaultModel)
-    const [isLoading, setIsLoading] = useState(false)
-    const [model, setModel] = useState(defaultModel)
+    const [errors, setErrors] = useState(defaultModel);
+    const [isLoading, setIsLoading] = useState(false);
+    const [model, setModel] = useState(defaultModel);
 
     const handleChange = (e) => {
-        const name = e.target.name
-        const value = e.target.value?.trim()
-
+        const { name, value } = e.target;
         setModel({
             ...model,
-            [name]: value
-        })
-    }
+            [name]: value.trim()
+        });
+    };
 
     const handleSubmit = async (e) => {
-        e.preventDefault()
-        setIsLoading(true)
-        setErrors(defaultModel)
+        e.preventDefault();
+        setIsLoading(true);
+        setErrors(defaultModel);
 
-        const result = validateModel(model)
+        const result = validateModel(model);
 
         if (!result.isValid) {
-            setErrors(result.errors)
-            setIsLoading(false)
-            return
+            setErrors(result.errors);
+            setIsLoading(false);
+            return;
         }
 
         try {
-            const resp = await login(model)
-            signIn(resp)
-            const url = router.query.url
-            if (url) {
-                router.push(url)
-            } else {
-                router.push("/")
-            }
-        } catch (e) {
+            const resp = await login(model);
+            signIn(resp);
+            const url = router.query.url || "/";
+            router.push(url);
+        } catch (error) {
+            console.error("Login error:", error); // Log the error for debugging
             setErrors({
                 ...errors,
-                login: "Login failed"
-            })
-            setIsLoading(false)
+                login: "Invalid credentials. Please try again." // Update with more specific error message if needed
+            });
+        } finally {
+            setIsLoading(false);
         }
-    }
-    
+    };
 
     return session.user ? null : (
         <>
-        <div className={styles.login}>
-            {errors.login && <h2 className={styles.error}>{errors.login}</h2>}
+            <div className={styles.login}>
+                <div className={styles["form-container"]}>
+                    {errors.login && <h2 className={styles.error}>{errors.login}</h2>}
 
-            <form onSubmit={handleSubmit} style={{margin: "10px", marginTop: "20px"}}>
-                <label style={{margin: "10px"}}>Email:</label>
-                <InputText type="text" name="email" onChange={handleChange} value={model.email} autoComplete="email" required />
-                {errors.email && <div className={styles.error}>{errors.email}</div>}
+                    <form onSubmit={handleSubmit}>
+                        <div className={styles["form-group"]}>
+                            <label>Email:</label>
+                            <input type="text" name="email" onChange={handleChange} value={model.email} autoComplete="email" required />
+                            {errors.email && <div className={styles["error-message"]}>{errors.email}</div>}
+                        </div>
 
-                <label style={{margin: "10px"}}>Password:</label>
-                <InputText type="password" name="password" onChange={handleChange} value={model.password} autoComplete="current-password" required />
-                {errors.password && <div className={styles.error}>{errors.password}</div>}
+                        <div className={styles["form-group"]}>
+                            <label>Password:</label>
+                            <input type="password" name="password" onChange={handleChange} value={model.password} autoComplete="current-password" required />
+                            {errors.password && <div className={styles["error-message"]}>{errors.password}</div>}
+                        </div>
 
-                <Button disabled={isLoading} type="submit" label={isLoading ? "Loading..." : "Login"} style={{marginLeft: "10px"}} />
-            </form>
-        </div>
-
+                        <Button disabled={isLoading} type="submit" className={styles["submit-button"]}>
+                            {isLoading ? "Loading..." : "Login"}
+                        </Button>
+                    </form>
+                </div>
+            </div>
         </>
-
-    )
+    );
 }

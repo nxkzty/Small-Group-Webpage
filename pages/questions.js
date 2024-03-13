@@ -1,22 +1,22 @@
 
 import React from 'react';
 import { Accordion, AccordionTab } from 'primereact/accordion';
-import {Divider} from 'primereact/divider';
+import { Divider } from 'primereact/divider';
 import { Button } from 'primereact/button';
 
-export default function BasicDemo() {
+export default function QuestionPage() {
 
 
     const handleButtonClickDiscord = () => {
         window.location.href = 'https://discord.com';
-      };
+    };
 
 
 
     return (
         <div className="card">
             <Accordion activeIndex={0}>
-                <AccordionTab style={{marginTop: "20px"}} header="Question I">
+                <AccordionTab style={{ marginTop: "20px" }} header="Question I">
                     <p className="m-0">
                         Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
                         Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
@@ -42,14 +42,13 @@ export default function BasicDemo() {
                 </AccordionTab>
             </Accordion>
 
-            <Divider style={{marginTop: "7px", marginBottom: "10px"}}/>
+            <Divider style={{ marginTop: "7px", marginBottom: "10px" }} />
 
             <h3>If you have more Questions you can ask someome on our discord:</h3>
-            <Button style={{marginTop: "20px", marginRight: "20px" }} icon="pi pi-discord" label="Discord" onClick={handleButtonClickDiscord} />
+            <Button style={{ marginTop: "20px", marginRight: "20px" }} icon="pi pi-discord" label="Discord" onClick={handleButtonClickDiscord} />
 
 
 
         </div>
     )
 }
-        

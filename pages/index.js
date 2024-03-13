@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import Gallerie from '../components/Gallerie';
 import { RadioButton } from "primereact/radiobutton";
-import {Button} from "primereact/button"
+import { Button } from "primereact/button"
 
 function IndexPage() {
     const [searchFilter, setSearchFilter] = useState(1);
@@ -11,7 +11,7 @@ function IndexPage() {
         book_name: "John",
         chapter: 3,
         verse: 16,
-        text: "Auf einen Freund kannst du dich immer verlassen; wenn es dir schlecht geht, ist er für dich wie ein Bruder."
+        text: "For God so loved the world, that he gave his only Son, that whoever believes in him should not perish but have eternal life."
     });
 
     const [bible] = useState([
@@ -143,7 +143,7 @@ function IndexPage() {
                 <form style={{ marginTop: '20px' }}>
                     <div style={{ display: 'flex', alignItems: 'center' }}>
                         <label style={{ marginRight: '10px' }}>
-                            <input
+                            <RadioButton style={{ marginRight: '10px' }}
                                 type="radio"
                                 value={1}
                                 checked={searchFilter === 1}
@@ -153,8 +153,7 @@ function IndexPage() {
                         </label>
 
                         <label style={{ marginRight: '10px' }}>
-                            <input
-                                type="radio"
+                            <RadioButton style={{ marginRight: '5px' }}
                                 value={2}
                                 checked={searchFilter === 2}
                                 onChange={() => setSearchFilter(2)}
@@ -163,7 +162,7 @@ function IndexPage() {
                         </label>
 
                         <label>
-                            <input
+                            <RadioButton style={{ marginRight: '10px' }}
                                 type="radio"
                                 value={3}
                                 checked={searchFilter === 3}
@@ -175,7 +174,7 @@ function IndexPage() {
                     <div className='card flex flex-wrap justify-content-center gap-3'>
                         <Button
                             label='Generate Scripture'
-                            style={{marginTop: "15px"}}
+                            style={{ marginTop: "15px" }}
                             disabled={loading}
                             onClick={(e) => { load(); generateScripture(e) }}
                         >
@@ -183,7 +182,7 @@ function IndexPage() {
                     </div>
                 </form>
 
-                
+
             </div>
         </>
     );

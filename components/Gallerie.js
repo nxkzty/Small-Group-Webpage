@@ -3,8 +3,8 @@ import { Carousel } from 'primereact/carousel';
 
 const itemTemplate = (item) => {
     return (
-        <div style={{ overflow: 'hidden'}}>
-            <img src={item.url} alt={item.alt} style={{ height: '100%', width: '100%', objectFit: 'cover'}} />
+        <div style={{ overflow: 'hidden' }}>
+            <img src={item.url} alt={item.alt} style={{ height: '100%', width: '100%', objectFit: 'cover' }} />
             <div className="item-caption" style={{ textAlign: 'center', marginTop: '10px' }}>{item.caption}</div>
         </div>
     );
@@ -26,8 +26,8 @@ const items = [
         alt: 'Image 2',
         caption: (
             <>
-                - Johannes 3,16 <br /> 
-                Denn Gott hat die Menschen so sehr geliebt, dass er seinen einzigen Sohn für sie hergab. <br /> Jeder, der an ihn glaubt, wird nicht zugrunde gehen, sondern das ewige Leben haben. 
+                - Johannes 3,16 <br />
+                Denn Gott hat die Menschen so sehr geliebt, dass er seinen einzigen Sohn für sie hergab. <br /> Jeder, der an ihn glaubt, wird nicht zugrunde gehen, sondern das ewige Leben haben.
             </>
         )
     },
@@ -36,7 +36,7 @@ const items = [
         alt: 'Image 3',
         caption: (
             <>
-                Ich lebe, doch nun nicht ich, sondern Christus lebt in mir. <br/> Denn was ich jetzt lebe im Fleisch, das lebe ich im Glauben an den Sohn Gottes, der mich geliebt hat und sich selbst für mich dahingegeben.            </>
+                Ich lebe, doch nun nicht ich, sondern Christus lebt in mir. <br /> Denn was ich jetzt lebe im Fleisch, das lebe ich im Glauben an den Sohn Gottes, der mich geliebt hat und sich selbst für mich dahingegeben.            </>
         )
     },
 ];
