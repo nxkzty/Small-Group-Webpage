@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import Gallerie from '../components/Gallerie';
 import { RadioButton } from "primereact/radiobutton";
-import {Button} from "primereact/button"
+import { Button } from "primereact/button"
 
 function IndexPage() {
     const [searchFilter, setSearchFilter] = useState(1);
@@ -153,7 +153,7 @@ function IndexPage() {
                         </label>
 
                         <label style={{ marginRight: '10px' }}>
-                            <RadioButton style={{marginRight: '5px'}}
+                            <RadioButton style={{ marginRight: '5px' }}
                                 value={2}
                                 checked={searchFilter === 2}
                                 onChange={() => setSearchFilter(2)}
@@ -174,7 +174,7 @@ function IndexPage() {
                     <div className='card flex flex-wrap justify-content-center gap-3'>
                         <Button
                             label='Generate Scripture'
-                            style={{marginTop: "15px"}}
+                            style={{ marginTop: "15px" }}
                             disabled={loading}
                             onClick={(e) => { load(); generateScripture(e) }}
                         >
@@ -182,7 +182,7 @@ function IndexPage() {
                     </div>
                 </form>
 
-                
+
             </div>
         </>
     );
