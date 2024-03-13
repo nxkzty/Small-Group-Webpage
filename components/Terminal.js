@@ -57,7 +57,7 @@ export default function TerminalAbout() {
         <div className="card terminal-demo">
             <Terminal
                 prompt="christlizzes ~$"
-                style={{ backgroundColor: "Black", color: "LightBlue", width: "850px" }}
+                style={{ backgroundColor: "Black", color: "LightBlue", width: "850px", borderRadius: "10px" }}
             />
         </div>
     );

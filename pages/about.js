@@ -68,6 +68,7 @@ Jeremy und Leon</strong>
                     height={500}
                     src='/jeremy_leon.png'
                     alt="Jeremy und Leon"
+                    style={{borderRadius: "10px"}}
                 />
                 <TerminalAbout/>
 
