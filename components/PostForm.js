@@ -31,7 +31,7 @@ function validateModel(post) {
     return { errors, isValid }
 }
 
-export default function PostForm({ postToEdit }) {
+export default function PostForm({ postToEdit,  }) {
     const { session } = useSession()
     const router = useRouter()
     const [isLoading, setIsLoading] = useState(false)
