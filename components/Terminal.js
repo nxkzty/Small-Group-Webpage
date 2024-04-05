@@ -11,7 +11,7 @@ export default function TerminalAbout() {
         switch (command) {
 
             case 'help':
-                response = 'help | date | clear | members | about | devs'
+                response = 'help | date | clear | members | about | devs | contact'
                 break;
 
             case 'date':
@@ -32,6 +32,10 @@ export default function TerminalAbout() {
 
             case 'devs':
                 response = 'This website was developed by: Jeremy Hefti & Leon Höfferer'
+                break;
+
+            case 'contact':
+                response = 'Ihr könnt uns gerne auf Instagram, Discord sowie YouTube folgen.'
                 break;
 
             default:

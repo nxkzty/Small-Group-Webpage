@@ -30,6 +30,9 @@ export default function AboutPage() {
         window.location.href = 'https://instagram.com';
     };
 
+    const handleButtonYouTube = () => {
+        window.location.href = 'https://youtube.com'
+    }
     return (
         <>
             <header>
@@ -84,8 +87,8 @@ export default function AboutPage() {
                         <Button
                             icon="pi pi-youtube"
                             label="YouTube"
-                            
-                            onClick={handleButtonClickInstagram}
+                            className="p-button-danger"
+                            onClick={handleButtonYouTube}
                         />
                     </div>
                 </footer>
