@@ -5,6 +5,7 @@ import { Carousel } from 'primereact/carousel';
 import { Tag } from 'primereact/tag';
 import { ProductService } from './ProductService';
 
+
 export default function BasicDemo() {
     const [products, setProducts] = useState([]);
     const responsiveOptions = [
