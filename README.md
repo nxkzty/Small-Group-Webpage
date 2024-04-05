@@ -20,4 +20,4 @@ In der `.env` Datei muss  folgender Wert gesetzt werden: `NEXT_PUBLIC_API_URL=ht
 
 Um das Backend zu runnen musst du die Schritte im Small-Group-Backend README durchführen.
 
-Falls das Frontend schon läuft kannst du die Website nun benutzen.
+Falls das Backend schon läuft kannst du die Website nun benutzen.
