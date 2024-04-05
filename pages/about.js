@@ -75,9 +75,16 @@ export default function AboutPage() {
                             onClick={handleButtonClickDiscord}
                         />
                         <Button
+                            style={{marginRight: "20px"}}
                             icon="pi pi-instagram"
                             label="Instagram"
                             className="p-button-secondary"
+                            onClick={handleButtonClickInstagram}
+                        />
+                        <Button
+                            icon="pi pi-youtube"
+                            label="YouTube"
+                            
                             onClick={handleButtonClickInstagram}
                         />
                     </div>
