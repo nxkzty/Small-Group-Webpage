@@ -31,7 +31,7 @@ export default function AboutPage() {
     };
 
     const handleButtonYouTube = () => {
-        window.location.href = 'https://youtube.com'
+        window.location.href = 'https://www.youtube.com/@Christlizzes-ol7ol'
     }
     return (
         <>
@@ -78,13 +78,14 @@ export default function AboutPage() {
                             onClick={handleButtonClickDiscord}
                         />
                         <Button
-                            style={{marginRight: "20px"}}
+                            style={{marginTop: "20px", marginRight: "20px"}}
                             icon="pi pi-instagram"
                             label="Instagram"
                             className="p-button-secondary"
                             onClick={handleButtonClickInstagram}
                         />
                         <Button
+                        style={{marginTop: "20px", marginRight: "20px" }}
                             icon="pi pi-youtube"
                             label="YouTube"
                             className="p-button-danger"
