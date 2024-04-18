@@ -10,7 +10,7 @@ export default function QuestionPage() {
 
 
     const handleButtonClickDiscord = () => {
-        window.location.href = 'https://discord.com';
+        window.location.href = 'https://discord.gg/Q3XzQSBB';
     };
 
 

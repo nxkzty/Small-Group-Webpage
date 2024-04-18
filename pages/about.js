@@ -23,7 +23,7 @@ export default function AboutPage() {
     };
 
     const handleButtonClickDiscord = () => {
-        window.location.href = 'https://discord.gg/c2VeQNBaqy';
+        window.location.href = 'https://discord.gg/Q3XzQSBB';
     };
 
     const handleButtonClickInstagram = () => {
