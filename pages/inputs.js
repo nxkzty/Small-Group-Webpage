@@ -3,6 +3,9 @@ import {formatDate} from "@/lib/formatDate";
 import Link from "next/link";
 import {useEffect, useState} from "react";
 import {Button} from "primereact/button";
+import { IconField } from "primereact/iconfield";
+import { InputIcon } from "primereact/inputicon";
+import { InputText } from "primereact/inputtext";
 import style from "@/pages/AboutPage.module.css";
 
 export default function IndexPage() {
@@ -26,15 +29,23 @@ export default function IndexPage() {
 
     return (
         <div>
-            <h1 style={{color: "grey", textAlign: "center", display: "flex", alignItems: "center", justifyContent: "center"}}>
-                <img
-                style={{marginRight: "5px"}}
-                alt="Smallgroup Logo"
-                src="https://cdn1.iconfinder.com/data/icons/winter-119/48/Jesus_Christ-512.png"
-                height="40"
-                onClick={() => setIsOpen(!isOpen)}
-                />
-                Christ in Focus: Experiences and Realizations</h1>
+            <div style={{textAlign: "center", display: "flex", alignItems: "center", justifyContent: "center"}}>
+                <IconField iconPosition="left" style={{marginRight: "20px"}}>
+                    <InputIcon className="pi pi-search"> </InputIcon>
+                    <InputText v-model="value1" placeholder="Search" />
+                </IconField>
+                <h1 style={{color: "grey", textAlign: "center", display: "flex", alignItems: "center", justifyContent: "center"}}>
+
+                    <img
+                        style={{marginRight: "5px"}}
+                        alt="Smallgroup Logo"
+                        src="https://cdn1.iconfinder.com/data/icons/winter-119/48/Jesus_Christ-512.png"
+                        height="40"
+                        onClick={() => setIsOpen(!isOpen)}
+                    />
+                    Christ in Focus: Experiences and Realizations</h1>
+            </div>
+
             {posts.map((post) => (
                 <article key={post.id}>
                     <h2>
